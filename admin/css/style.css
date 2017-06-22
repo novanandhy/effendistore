@@ -19,3 +19,9 @@
 	width: 319px;
     margin-left: 50px;
 }
+
+a:hover,
+a:active,
+a:focus{
+	color: #2980b9 !important;
+}

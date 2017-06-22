@@ -117,8 +117,8 @@
                                 echo "</td>";
 
                                 echo "<td id='code'>".$row['code']."</td>";
-                                    
-                                echo "<td><article>".$row['description']."</article></td>";
+
+                                echo "<td><button class='btn btn-primary btn-sm description' data-toggle='modal' data-target='#details' data-details='".$row['description']."'>Details</button></td>";
 
                                 echo "<td>".$row['updated_at']."</td>";;
 
@@ -243,7 +243,31 @@
                     <!--/.Content-->
                 </div>
             </div>
-        <!-- Right Modal Large-->                                   
+        <!-- Right Modal Large-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-notify modal-info" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="heading lead" id="myModalLabel">Details</h4>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <p id="description"></p>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!-- Modal -->
+
+                                                   
 
         </div>
     </main>
@@ -272,6 +296,14 @@
              var link = document.getElementById("link");
              var a = "function/deleteProduct.php?code="+code;
              link.href = a;
+        });
+    </script>
+
+      <!-- get description to modal -->
+    <script type="text/javascript">
+        $(document).on("click", ".description", function () {
+             var details = $(this).data("details");
+             var link = document.getElementById("description").innerHTML = details;
         });
     </script>
 
