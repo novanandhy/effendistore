@@ -1,0 +1,21 @@
+
+.white-text{
+	color: white;
+	margin: auto;
+}
+
+.select-width{
+	width: 319px;
+    margin-left: 50px;
+}
+.md-form, .md-form .btn{
+	margin-bottom: 0;
+}
+.modal-footer, .modal-header{
+	padding: 0;
+}
+
+.tag-width{
+	width: 319px;
+    margin-left: 50px;
+}
