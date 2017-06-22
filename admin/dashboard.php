@@ -253,8 +253,8 @@
                         <div class="modal-footer justify-content-center">
 
                             <!-- alamat href ada di javascript -->
-                           <a type="submit" href="" id="code" class="icons-sm slack-ic btn-flat"><i class="fa fa-check" aria-hidden="true"></i></a>
-                           <button class="icons-sm gplus-ic btn-flat" data-dismiss="modal"><i class="fa fa-remove" aria-hidden="true"></i></button>
+                           <a id="link" class="icons-sm slack-ic btn-flat"><i class="fa fa-check" aria-hidden="true"></i></a>
+                           <a class="icons-sm gplus-ic btn-flat" data-dismiss="modal"><i class="fa fa-remove" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     <!--/.Content-->
@@ -283,9 +283,10 @@
     <!-- delete product by code -->
     <script type="text/javascript">
         $(document).on("click", ".remove", function () {
-             var code = $(this).data('productid');
-             var link = document.getElementById('code');
-             link.href = "function/deleteProduct.php?code="+code;
+             var code = $(this).data("productid");
+             var link = document.getElementById("link");
+             var a = "function/deleteProduct.php?code="+code;
+             link.href = a;
         });
     </script>
 
