@@ -117,25 +117,8 @@
                                 echo "</td>";
 
                                 echo "<td id='code'>".$row['code']."</td>";
-
-                                // strip tags to avoid breaking any html
-                                $string = strip_tags($row['description']);
-
-                                // check if string length more than 300 words
-                                if (strlen($string) > 300) {
-
-                                    // truncate string
-                                    $stringCut = substr($string, 0, 100);
-                                    $stringMore = substr($string, 101, strlen($string));
-
-                                    echo "<td>";
-                                    echo "<span class='teaser'>".$stringCut."</span>";
-                                    echo "<span class='complete'>".$stringMore."</span>";
-                                    echo "<span class='more'>read more...</span>";
-                                    echo "</td>";
-                                }else{
-                                    echo "<td>".$string."</td>";
-                                }
+                                    
+                                echo "<td><article>".$row['description']."</article></td>";
 
                                 echo "<td>".$row['updated_at']."</td>";;
 
@@ -267,6 +250,8 @@
     <!--/Main layout-->
     <!-- SCRIPTS -->
     <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/compiled.min.js"></script>
+    <script src="js/readmore.min.js"></script>
+    
     <script>
     $(".button-collapse").sideNav();
         
@@ -312,15 +297,6 @@
         } 
       }
     }
-    </script>
-
-    <!-- read more javascript -->
-    <script type="text/javascript">
-        $(".more").toggle(function(){
-            $(this).text("less..").siblings(".complete").show();    
-        }, function(){
-            $(this).text("more..").siblings(".complete").hide();    
-        });
     </script>
     
 </body>

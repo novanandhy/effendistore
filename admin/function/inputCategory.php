@@ -23,7 +23,6 @@ if (isset($_POST['name']) && isset($_POST['description']) ) {
         $message = "Category has already exist";
         echo "<script type='text/javascript'>alert('$message');window.location.href='../category.php';</script>";
     }
-    $mysqli->close();
     
 } 
 else {
