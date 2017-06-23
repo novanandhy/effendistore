@@ -1,5 +1,14 @@
 <?php
     include "database/config.php";
+
+    if (isset($_GET['category'])) {
+        $category = $_GET['category'];
+
+        // jalankan query
+        $show = mysqli_query($connect, "SELECT * FROM product WHERE id_category = $category ORDER BY id");
+    }else{
+        $show = mysqli_query($connect, "SELECT * FROM product ORDER BY id");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,13 +83,13 @@
                 <nav class="col-xs-12" id="myScrollspy">
                     <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205" style="margin-top: 150px;">
                         <li style="margin-bottom: 10px">Kategori</li>
+                        <li><a href="catalogue.php">Semua Produk</a></li>
                         <?php
-                            // jalankan query
-                            $result = mysqli_query($connect, "SELECT * FROM category ORDER BY id");
-                             
                             // tampilkan query
+                            $result = mysqli_query($connect, "SELECT * FROM category ORDER BY id");
+
                             while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
-                                echo "<li><a href='#section1'>".$row['name']."</a></li>";
+                                echo "<li><a href='catalogue.php?category=".$row['id']."'>".$row['name']."</a></li>";
                             }
                         ?>
                     </ul>
@@ -92,11 +101,8 @@
                         <center><h2>Our Products</h2></center>
 
                         <?php
-                            // jalankan query
-                            $result = mysqli_query($connect, "SELECT * FROM product ORDER BY id");
-                             
                             // tampilkan query
-                            while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+                            while ($row=mysqli_fetch_array($show,MYSQLI_ASSOC)){
                                 echo "<div class='col-md-4 col-xs-6 portfolio-item'>
                                         <a href='detail.php?code=".$row['code']."' class='portfolio-link'>
                                             <div class='portfolio-hover'>
