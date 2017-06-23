@@ -622,6 +622,9 @@ input:checked + .slider:before {
   .catalogue {
     width: 1105px !important;
   }
+  img{
+    height: 242px !important;
+  }
 }
 
 @media (max-width: 768px){
@@ -645,5 +648,8 @@ input:checked + .slider:before {
   }
   .nav>li>a{
     padding: 2px;
+  }
+ img{
+    height: 100px !important;
   }
 }

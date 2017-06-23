@@ -1,3 +1,6 @@
+<?php
+    include "database/config.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,7 +58,7 @@
                         <a class="page-scroll" href="#portfolio">Produk Terbaru</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="catalogue.html">Katalog</a>
+                        <a class="page-scroll" href="catalogue.php">Katalog</a>
                     </li>
                 </ul>
             </div>
@@ -80,8 +83,36 @@
     <section id="portfolio" class="bg-light-gray">
         <div class="container">
             <div class="row">
-                <center><h2>Our Products</h2></center>
-                <div class="col-md-4 col-xs-6 portfolio-item">
+                <center><h2>Produk Terbaru</h2></center>
+
+                <?php
+                    // jalankan query
+                    $result = mysqli_query($connect, "SELECT * FROM product ORDER BY id DESC LIMIT 6");
+                     
+                    // tampilkan query
+                    while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+                        echo "<div class='col-md-4 col-xs-6 portfolio-item'>
+                                <a href='detail.html' class='portfolio-link'>
+                                    <div class='portfolio-hover'>
+                                        <div class='portfolio-hover-content'>
+                                            <h4>Details</h4>
+                                        </div>
+                                    </div>
+                                    <img src='img/products/".$row['image']."' class='img-responsive' alt=''>
+                                </a>
+                                <div class='portfolio-caption'>
+                                    <h4>".$row['name']."</h4>";
+                                    $result2 = mysqli_query($connect, "SELECT * FROM category WHERE id = ".$row['id_category']);
+                                    while ($row2=mysqli_fetch_array($result2,MYSQLI_ASSOC)){
+                                        echo "<p class='text-muted'>".$row2['name']."</p>";
+                                    }
+                                echo"<p><i class='glyphicon glyphicon-tag'> Rp.".$row['price']."</i></p>
+                                </div>
+                            </div>";
+                    }
+                ?>
+
+                <!-- <div class="col-md-4 col-xs-6 portfolio-item">
                     <a href="detail.html" class="portfolio-link">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -95,82 +126,8 @@
                         <p class="text-muted" style="color: #e74c3c">status</p>
                         <p><i class="glyphicon glyphicon-tag"> Harga</i></p>
                     </div>
-                </div>
-                <div class="col-md-4 col-xs-6 portfolio-item">
-                    <a href="detail.html" class="portfolio-link">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <h4>Details</h4>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted" style="color: #e74c3c">status</p>
-                        <p><i class="glyphicon glyphicon-tag"> Harga</i></p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xs-6 portfolio-item">
-                    <a href="detail.html" class="portfolio-link">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <h4>Details</h4>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted" style="color: #e74c3c">status</p>
-                        <p><i class="glyphicon glyphicon-tag"> Harga</i></p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xs-6 portfolio-item">
-                    <a href="detail.html" class="portfolio-link">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <h4>Details</h4>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted" style="color: #e74c3c">status</p>
-                        <p><i class="glyphicon glyphicon-tag"> Harga</i></p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xs-6 portfolio-item">
-                    <a href="detail.html" class="portfolio-link">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <h4>Details</h4>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted" style="color: #e74c3c">status</p>
-                        <p><i class="glyphicon glyphicon-tag"> Harga</i></p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xs-6 portfolio-item">
-                    <a href="detail.html" class="portfolio-link">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <h4>Details</h4>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted" style="color: #e74c3c">status</p>
-                        <p><i class="glyphicon glyphicon-tag"> Harga</i></p>
-                    </div>
-                </div>
+                </div> -->
+
             </div>
         </div>
     </section>

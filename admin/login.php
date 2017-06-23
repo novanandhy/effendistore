@@ -16,7 +16,7 @@
     <title>Login</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled.min.css" rel="stylesheet">
+    <link href="css/compiled.min.css" rel="stylesheet">
 
     <!-- Style theme -->
     <link rel="stylesheet" href="css/style.css">
@@ -67,7 +67,7 @@
     </main>
     <!--/Main layout-->
     <!-- SCRIPTS -->
-    <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/compiled.min.js"></script>
+    <script type="text/javascript" src="js/compiled.min.js"></script>
     <script type="text/javascript">
     $(window).on('load',function(){
         $('#myModal').modal('show');
