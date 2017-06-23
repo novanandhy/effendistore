@@ -87,7 +87,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-xs-4">
-                        <?php echo "<p class='price'>".$row['price']."</p>"; ?>
+                        <?php echo "<p class='price'>Rp.".$row['price']."</p>"; ?>
                     </div>
                     <div class="col-md-6 col-xs-6">
                         <?php 
@@ -100,7 +100,7 @@
                 </div>
                 <div class="row">
                     <h5>Deskripsi Produk</h5>
-                    <?php echo "<p>".$row['description']."</p>"; }?>
+                    <?php echo $row['description']; }?>
                 </div>
             </div>
         </div>

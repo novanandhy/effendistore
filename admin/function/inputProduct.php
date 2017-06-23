@@ -19,7 +19,7 @@ if (isset($_POST['name']) && isset($_POST['category']) && isset($_POST['descript
     $image = $code . "." . $imageFileType;
 
     // check if product exists
-    $result = $connect->query("SELECT code FROM product WHERE name = '$code'");
+    $result = $connect->query("SELECT code FROM product WHERE code = '$code'");
     if($result->num_rows == 0) {
         // Check if image file is a actual image or fake image
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
