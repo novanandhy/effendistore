@@ -1,3 +1,6 @@
+<?php
+    include "database/config.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,9 +74,15 @@
                 <nav class="col-xs-12" id="myScrollspy">
                     <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205" style="margin-top: 150px;">
                         <li style="margin-bottom: 10px">Kategori</li>
-                        <li><a href="#section1">Mainan</a></li>
-                        <li><a href="#section2">Gadget</a></li>
-                        <li><a href="#section3">Electronic</a></li>
+                        <?php
+                            // jalankan query
+                            $result = mysqli_query($connect, "SELECT * FROM category ORDER BY id");
+                             
+                            // tampilkan query
+                            while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+                                echo "<li><a href='#section1'>".$row['name']."</a></li>";
+                            }
+                        ?>
                     </ul>
                 </nav>
             </div>
@@ -81,21 +90,34 @@
                 <div class="catalogue">
                     <div class="row" style="margin-top: 50px;">
                         <center><h2>Our Products</h2></center>
-                        <div class="col-lg-4 col-xs-6 portfolio-item">
-                            <a href="detail.html" class="portfolio-link">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content">
-                                        <h4>Details</h4>
-                                    </div>
-                                </div>
-                                <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
-                            </a>
-                            <div class="portfolio-caption">
-                                <h4>Round Icons</h4>
-                                <p class="text-muted" style="color: #e74c3c">status</p>
-                                <p><i class="glyphicon glyphicon-tag"> Harga</i></p>
-                            </div>
-                        </div>
+
+                        <?php
+                            // jalankan query
+                            $result = mysqli_query($connect, "SELECT * FROM product ORDER BY id");
+                             
+                            // tampilkan query
+                            while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+                                echo "<div class='col-md-4 col-xs-6 portfolio-item'>
+                                        <a href='detail.php?code=".$row['code']."' class='portfolio-link'>
+                                            <div class='portfolio-hover'>
+                                                <div class='portfolio-hover-content'>
+                                                    <h4>Details</h4>
+                                                </div>
+                                            </div>
+                                            <img src='img/products/".$row['image']."' class='img-responsive catalogue' alt=''>
+                                        </a>
+                                        <div class='portfolio-caption'>
+                                            <h4>".$row['name']."</h4>";
+                                            $result2 = mysqli_query($connect, "SELECT * FROM category WHERE id = ".$row['id_category']);
+                                            while ($row2=mysqli_fetch_array($result2,MYSQLI_ASSOC)){
+                                                echo "<p class='text-muted'>".$row2['name']."</p>";
+                                            }
+                                        echo"<p><i class='glyphicon glyphicon-tag'> Rp.".$row['price']."</i></p>
+                                        </div>
+                                    </div>";
+                            }
+                        ?>
+
                     </div>
                 </div>
             </div>

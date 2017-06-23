@@ -622,7 +622,7 @@ input:checked + .slider:before {
   .catalogue {
     width: 1105px !important;
   }
-  img{
+  img.catalogue{
     height: 242px !important;
   }
 }
@@ -649,7 +649,7 @@ input:checked + .slider:before {
   .nav>li>a{
     padding: 2px;
   }
- img{
+ img.catalogue{
     height: 100px !important;
   }
 }

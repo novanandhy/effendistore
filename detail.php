@@ -1,3 +1,15 @@
+<?php
+    include "database/config.php";
+
+    $code = $_GET['code'];
+
+     // jalankan query
+        $result = mysqli_query($connect, "SELECT * FROM product WHERE code = $code");
+         
+        // tampilkan query
+        while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+?>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +55,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="index.html">Effendi Store</a>
+                <a class="navbar-brand page-scroll" href="index.php">Effendi Store</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -52,10 +64,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="index.html">Halaman Utama</a>
+                        <a class="page-scroll" href="index.php">Halaman Utama</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="catalogue.html">Katalog</a>
+                        <a class="page-scroll" href="catalogue.php">Katalog</a>
                     </li>
                 </ul>
             </div>
@@ -67,25 +79,28 @@
     <div class="container">
         <div class="row" style="margin-top: 100px;">
             <div class="col-md-8">
-                <img class="img-responsive" src="img/header-bg.jpg" alt="Chania">
+                <?php echo "<img src='img/products/".$row['image']."' class='img-responsive' alt=''>"; ?>
             </div>
             <div class="col-md-4">
                 <div class="row">
-                    <h4 class="product-name">Nama barang</h4>
+                    <?php echo "<h4 class='product-name'>".$row['name']."</h4>"; ?>
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-xs-4">
-                        <p class="price">harga</p>
+                        <?php echo "<p class='price'>".$row['price']."</p>"; ?>
                     </div>
                     <div class="col-md-6 col-xs-6">
-                        <span style="color: #c0392b;">Habis</span>
+                        <?php 
+                            $result2 = mysqli_query($connect, "SELECT * FROM category WHERE id = ".$row['id_category']);
+                            while ($row2=mysqli_fetch_array($result2,MYSQLI_ASSOC)){
+                                echo "<p class='text-muted'>".$row2['name']."</p>";
+                            }?>
                     </div>
                     
                 </div>
                 <div class="row">
                     <h5>Deskripsi Produk</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend ornare tempus. Suspendisse potenti. Pellentesque eu justo ac elit hendrerit vehicula ac in tortor. Nam lacinia nisi in urna tincidunt dapibus. Sed dolor tortor, scelerisque eget lacus sit amet, mattis ornare magna. Morbi interdum urna vel ligula auctor congue. Mauris congue libero quis consectetur tempor. In feugiat ex ut felis semper, nec varius nisl finibus. Fusce sed purus tincidunt, venenatis leo et, ultricies eros. Vivamus vel mi et tortor dapibus porta. Nam suscipit eleifend imperdiet. Maecenas non scelerisque velit.
-                    </p>
+                    <?php echo "<p>".$row['description']."</p>"; }?>
                 </div>
             </div>
         </div>
@@ -95,7 +110,7 @@
 
     <footer>
         <div class="container">
-            <div class="row" style="padding-top: 20px;">
+            <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <ul class="list-inline social-buttons">
                         <li><a href="#"><i class="fa fa-twitter"></i></a>

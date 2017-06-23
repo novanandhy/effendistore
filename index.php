@@ -92,13 +92,13 @@
                     // tampilkan query
                     while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
                         echo "<div class='col-md-4 col-xs-6 portfolio-item'>
-                                <a href='detail.html' class='portfolio-link'>
+                                <a href='detail.php?code=".$row['code']."' class='portfolio-link'>
                                     <div class='portfolio-hover'>
                                         <div class='portfolio-hover-content'>
                                             <h4>Details</h4>
                                         </div>
                                     </div>
-                                    <img src='img/products/".$row['image']."' class='img-responsive' alt=''>
+                                    <img src='img/products/".$row['image']."' class='img-responsive catalogue' alt=''>
                                 </a>
                                 <div class='portfolio-caption'>
                                     <h4>".$row['name']."</h4>";
@@ -111,22 +111,6 @@
                             </div>";
                     }
                 ?>
-
-                <!-- <div class="col-md-4 col-xs-6 portfolio-item">
-                    <a href="detail.html" class="portfolio-link">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <h4>Details</h4>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted" style="color: #e74c3c">status</p>
-                        <p><i class="glyphicon glyphicon-tag"> Harga</i></p>
-                    </div>
-                </div> -->
 
             </div>
         </div>
