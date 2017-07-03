@@ -13,9 +13,13 @@ body {
 .text-primary {
   color: #2c3e50;
 }
+.container{
+  padding: 20px;
+}
 p {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.75;
+  margin-bottom: 0px;
 }
 p.large {
   font-size: 16px;
@@ -45,6 +49,9 @@ h6 {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #2ecc71;
 }
 .img-centered {
   margin: 0 auto;
@@ -100,9 +107,9 @@ fieldset[disabled] .btn-primary.active {
   background-color: white;
 }
 .btn-xl {
-  color: white;
-  background-color: #2ecc71;
-  border-color: #2ecc71;
+  color: #2ecc71;
+  background-color: #ecf0f1;
+  border-color: #ecf0f1;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
@@ -115,9 +122,9 @@ fieldset[disabled] .btn-primary.active {
 .btn-xl:active,
 .btn-xl.active,
 .open .dropdown-toggle.btn-xl {
-  color: white;
-  background-color: #27ae60;
-  border-color: #27ae60;
+  color: #2ecc71;
+  background-color: #ECECEC;
+  border-color: #ECECEC;
 }
 .btn-xl:active,
 .btn-xl.active,
@@ -147,18 +154,18 @@ fieldset[disabled] .btn-xl.active {
   background-color: white;
 }
 .navbar-custom {
-  background-color: #222222;
+  background-color: #2ecc71;
   border-color: transparent;
 }
 .navbar-custom .navbar-brand {
-  color: #2ecc71;
+  color: #34495e;
   font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
 }
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus,
 .navbar-custom .navbar-brand:active,
 .navbar-custom .navbar-brand.active {
-  color: #27ae60;
+  color: #34495e;
 }
 .navbar-custom .navbar-collapse {
   border-color: rgba(255, 255, 255, 0.02);
@@ -180,11 +187,11 @@ fieldset[disabled] .btn-xl.active {
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 1px;
-  color: #2ecc71;
+  color: #34495e;
 }
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
-  color: #27ae60;
+  color: #2c3e50;
   outline: none;
 }
 .navbar-custom .navbar-nav > .active > a {
@@ -249,7 +256,7 @@ fieldset[disabled] .btn-xl.active {
 
 }
 .header {
-  background-image: url('../img/header-bg.jpg');
+  background-color: #2ecc71;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -263,6 +270,7 @@ fieldset[disabled] .btn-xl.active {
 header .intro-text {
   padding-top: 100px;
   padding-bottom: 50px;
+  color: #ecf0f1;
 }
 header .intro-text .intro-lead-in {
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -361,6 +369,7 @@ section h3.section-subheading {
   margin: 0 auto;
   background-color: white;
   text-align: center;
+  padding: 10px;
 }
 #portfolio .portfolio-item .portfolio-caption h4 {
   text-transform: none;
@@ -372,15 +381,13 @@ section h3.section-subheading {
   font-size: 16px;
   margin: 0;
 }
-#portfolio * {
-  z-index: 2;
-}
 @media (min-width: 767px) {
   #portfolio .portfolio-item {
     margin: 40px 0 30px;
   }
 }footer {
-  padding: 25px 0;
+  padding-top: 20px;
+  padding-bottom: 5px;
   text-align: center;
 }
 footer span.copyright {
@@ -625,6 +632,10 @@ input:checked + .slider:before {
   img.catalogue{
     height: 242px !important;
   }
+  .dropdown{
+    margin-top: 40px !important; 
+    margin-left: 20px !important;
+  }
 }
 
 @media (max-width: 768px){
@@ -651,5 +662,35 @@ input:checked + .slider:before {
   }
  img.catalogue{
     height: 100px !important;
+    width: 100%;
+  }
+  .dropdown{
+    margin-top: 20px !important;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .dropdown-menu>li>a {
+    display: block;
+    padding: 4px 8px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  .dropdown-menu{
+    min-width: 120px;
+    left: 50%;
+    right: auto;
+    text-align: center;
+    transform: translate(-50%, 0);
+  }
+  .btn{
+    font-size: 10px;
+  }
+  #portfolio .portfolio-item .portfolio-caption p{
+    font-size: 10px;
   }
 }

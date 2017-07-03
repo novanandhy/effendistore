@@ -45,7 +45,7 @@
 
 </head>
 
-<body id="page-top" class="index">
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="15">
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -78,11 +78,14 @@
 
     <!-- Portfolio Grid Section -->
     <section id="portfolio">
-        <div class="row bg-light-gray">
-            <div class="col-md-2 col-xs-2">
-                <nav class="col-xs-12" id="myScrollspy">
-                    <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205" style="margin-top: 150px;">
-                        <li style="margin-bottom: 10px">Kategori</li>
+        <div class="row">
+            <center><h2 style="margin-top: 100px;">Produk Kami</h2></center>
+            <div class="col-md-2 text-center">
+               <div class="dropdown nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205" id="myScrollspy">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Kategori
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-center">
                         <li><a href="catalogue.php">Semua Produk</a></li>
                         <?php
                             // tampilkan query
@@ -93,13 +96,12 @@
                             }
                         ?>
                     </ul>
-                </nav>
+                </div>
+                        
             </div>
-            <div class="col-md-10 col-xs-10">
-                <div class="catalogue">
-                    <div class="row" style="margin-top: 50px;">
-                        <center><h2>Our Products</h2></center>
-
+            <div class="col-md-10">
+                <div class="catalogue" style="margin-top: 10px;">
+                    <div class="row">
                         <?php
                             // tampilkan query
                             while ($row=mysqli_fetch_array($show,MYSQLI_ASSOC)){
@@ -130,14 +132,29 @@
         </div>
     </section>
 
-    <footer>
+    <footer class="bg-light-gray">
+        <div class="row">
+            <div class="col-md-6">
+                <center><h5>Toko Kandangan</h5></center>
+                <center><p>Jalan Toyoresmi No. 06 RT 02/ RW 05</p></center>
+                <center><p>(Gang sebelah Kantor Pos Kandangan, Depan Masjid Baitul Ghufron)</p></center>
+                <center><p>Prambatan, Kec. Kandangan, Kab. Kediri</p></center>
+                <center><i class="fa fa-whatsapp" aria-hidden="true"></i><span> 085790508336</span></center>
+                <center><P>BBM: D9798CB5</P></center>
+            </div>
+            <div class="col-md-6">
+                <center><h5>Toko Wates</h5></center>
+                <center><p>Gang Masjid Baitul A'mal</p></center>
+                <center><p>Desa Wonorejo RT 14 / RW 03 No.92</p></center>
+                <center><p>Kec. Wates, Kab. Kediri</p></center>
+                <center><i class="fa fa-whatsapp" aria-hidden="true"></i><span> 085749548986</span></center>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-offset-4">
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        <li><a href="https://www.facebook.com/groups/1811309579119935/?fref=ts"><i class="fa fa-facebook"></i></a>
                         </li>
                     </ul>
                 </div>

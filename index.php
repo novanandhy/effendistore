@@ -83,7 +83,7 @@
     <section id="portfolio" class="bg-light-gray">
         <div class="container">
             <div class="row">
-                <center><h2>Produk Terbaru</h2></center>
+                <center><h2 style="margin-top: 30px;">Produk Terbaru</h2></center>
 
                 <?php
                     // jalankan query
@@ -119,11 +119,26 @@
     <footer>
         <div class="container">
             <div class="row">
+                <div class="col-md-6">
+                    <center><h5>Toko Kandangan</h5></center>
+                    <center><p>Jalan Toyoresmi No. 06 RT 02/ RW 05</p></center>
+                    <center><p>(Gang sebelah Kantor Pos Kandangan, Depan Masjid Baitul Ghufron)</p></center>
+                    <center><p>Prambatan, Kec. Kandangan, Kab. Kediri</p></center>
+                    <center><i class="fa fa-whatsapp" aria-hidden="true"></i><span> 085790508336</span></center>
+                    <center><P>BBM: D9798CB5</P></center>
+                </div>
+                <div class="col-md-6">
+                    <center><h5>Toko Wates</h5></center>
+                    <center><p>Gang Masjid Baitul A'mal</p></center>
+                    <center><p>Desa Wonorejo RT 14 / RW 03 No.92</p></center>
+                    <center><p>Kec. Wates, Kab. Kediri</p></center>
+                    <center><i class="fa fa-whatsapp" aria-hidden="true"></i><span> 085749548986</span></center>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        <li><a href="https://www.facebook.com/groups/1811309579119935/?fref=ts"><i class="fa fa-facebook"></i></a>
                         </li>
                     </ul>
                 </div>

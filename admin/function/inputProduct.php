@@ -6,7 +6,8 @@ if (isset($_POST['name']) && isset($_POST['category']) && isset($_POST['descript
     // receiving the post params
     $name = $_POST['name'];
     $category = $_POST['category'];
-    $description = $_POST['description'];
+    $desc = $_POST['description'];
+    $description = strip_tags($desc);
     $price = $_POST['price'];
     $code = $_POST['code'];
 

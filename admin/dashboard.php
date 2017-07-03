@@ -274,7 +274,6 @@
     <!--/Main layout-->
     <!-- SCRIPTS -->
     <script type="text/javascript" src="js/compiled.min.js"></script>
-    <script src="js/readmore.min.js"></script>
     
     <script>
     $(".button-collapse").sideNav();
