@@ -633,7 +633,7 @@ input:checked + .slider:before {
     height: 242px !important;
   }
   .dropdown{
-    margin-top: 40px !important; 
+    margin-top: 50px !important; 
     margin-left: 20px !important;
   }
 }

@@ -24,6 +24,8 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+    <link rel="shortcut icon" href="img/icon.ico">
+
     <!-- Theme CSS -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -83,7 +85,7 @@
     <section id="portfolio" class="bg-light-gray">
         <div class="container">
             <div class="row">
-                <center><h2 style="margin-top: 30px;">Produk Terbaru</h2></center>
+                <center><h2 style="margin-top: 50px;">Produk Terbaru</h2></center>
 
                 <?php
                     // jalankan query
