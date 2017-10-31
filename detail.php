@@ -1,15 +1,14 @@
 <?php
-    include "database/config.php";
+    include "official/database/config.php";
 
     $code = $_GET['code'];
 
      // jalankan query
-        $result = mysqli_query($connect, "SELECT * FROM product WHERE code = $code");
+        $result = mysqli_query($connect, "SELECT * FROM product WHERE id = $code");
          
         // tampilkan query
         while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
 ?>
-<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +32,7 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-    <link rel="shortcut icon" href="img/icon.ico">
+    <link rel="shortcut icon" href="official/img/icon.ico">
 
     <!-- Theme CSS -->
     <link href="css/style.css" rel="stylesheet">
@@ -49,7 +48,7 @@
 
 <body id="page-top" class="index">
 
-    <!-- Navigation -->
+     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -58,6 +57,18 @@
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="index.php">Effendi Store</a>
+            </div>
+            <div class="navbar-header page-scroll">
+                <form class="navbar-form-custom" role="search" action="search.php" method="GET">
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control" name="key" placeholder="Search" >
+                        <span class="input-group-addon">
+                            <button type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>  
+                        </span>
+                    </div>
+                </form>    
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -80,28 +91,37 @@
 
     <div class="container">
         <div class="row" style="margin-top: 100px;">
-            <div class="col-md-8">
-                <?php echo "<img src='img/products/".$row['image']."' class='img-responsive' alt=''>"; ?>
+            <div class="col-md-6">
+                <?php echo "<img src='official/img/products/".$row['id'].".jpg' class='img-responsive' alt=''>"; ?>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="row">
                     <?php echo "<h4 class='product-name'>".$row['name']."</h4>"; ?>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 col-xs-4">
+                    <?php 
+                        if ($row['status'] == '1') {
+                            echo "<span class='badge' style='color:#fff;background-color:#28a745'>Tersedia</span>";
+                        }else{
+                            echo "<span class='badge' style='color:#fff;background-color:#dc3545'>Kosong</span>";
+                        }
+                    ?>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-xs-5">
                         <?php echo "<p class='price'>Rp.".$row['price']."</p>"; ?>
                     </div>
-                    <div class="col-md-6 col-xs-6">
+                    <div class="col-md-6 col-xs-7">
                         <?php 
                             $result2 = mysqli_query($connect, "SELECT * FROM category WHERE id = ".$row['id_category']);
                             while ($row2=mysqli_fetch_array($result2,MYSQLI_ASSOC)){
-                                echo "<p class='text-muted'>".$row2['name']."</p>";
+                                echo "<p class='text-muted' style='margin-top:3px;'>".$row2['name']."</p>";
                             }?>
                     </div>
                     
                 </div>
                 <div class="row">
-                    <h5>Deskripsi Produk</h5>
+                    <h5 style="margin-top:25px;">Deskripsi Produk</h5>
                     <?php $string = nl2br($row['description']);
                         echo "<p>".$string."</p>";
                     }?>
@@ -135,6 +155,8 @@
                 <div class="col-md-4 col-md-offset-4">
                     <ul class="list-inline social-buttons">
                         <li><a href="https://www.facebook.com/groups/1811309579119935/?fref=ts"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="https://www.instagram.com/effendistore/"><i class="fa fa-instagram"></i></a>
                         </li>
                     </ul>
                 </div>

@@ -371,19 +371,17 @@ section h3.section-subheading {
   text-align: center;
   padding: 10px;
 }
-#portfolio .portfolio-item .portfolio-caption h4 {
-  text-transform: none;
-  margin: 0;
-}
 #portfolio .portfolio-item .portfolio-caption p {
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: italic;
-  font-size: 16px;
+  font-size: 12px;
   margin: 0;
 }
 @media (min-width: 767px) {
   #portfolio .portfolio-item {
-    margin: 40px 0 30px;
+    margin: 0px 0 20px;
+	padding-left: 5px;
+    padding-right: 5px;
   }
 }footer {
   padding-top: 20px;
@@ -524,9 +522,11 @@ body {
 }
 .price{
   color: #2ecc71;
+  font-size: 20px;
 }
 .product-name{
   margin-top: 26px;
+  font-size: 20px;
 }
 .stylish-input-group .input-group-addon{
     background: #2ecc71 !important; 
@@ -616,29 +616,50 @@ input:checked + .slider:before {
 }
 
 
-@media (max-width: 768px){
-  .col-xs-6{
-    position: relative;
-    min-height: 1px;
-    padding-left: 3px;
-    padding-right: 0;
-  }
-}
-
-@media (min-width: 1200px){
+@media (min-width: 1000px){
   .catalogue {
     width: 1105px !important;
   }
   img.catalogue{
-    height: 242px !important;
+	height: 170px !important;
   }
   .dropdown{
     margin-top: 50px !important; 
     margin-left: 20px !important;
   }
+  #portfolio .portfolio-item .portfolio-caption h4 {
+	  text-transform: none;
+	  margin: 0;
+	  height: 50px;
+	  font-size: 12px;
+   }
+  .stylish-input-group{
+    max-width: 400px;
+  }
+  .stylish-input-group button{
+      border:0;
+      background:transparent;
+  }
+
+  .navbar-form-custom{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 150px;
+  }
 }
 
-@media (max-width: 768px){
+@media (max-width: 700px){
+	#portfolio .portfolio-item .portfolio-caption h4 {
+	  text-transform: none;
+	  margin: 0;
+	  height: 40px;
+	}
+	.col-xs-6{
+    position: relative;
+    min-height: 1px;
+    padding-left: 3px;
+    padding-right: 0;
+  }
   .row{
     margin-right: 0px; 
     margin-left: 0px;
@@ -652,7 +673,8 @@ input:checked + .slider:before {
     padding-right: 0px;
   }
   h4{
-    font-size: 0.93em;
+    font-size: 11px;
+	
   }
   p{
     font-size: : 11px !important;
@@ -692,5 +714,13 @@ input:checked + .slider:before {
   }
   #portfolio .portfolio-item .portfolio-caption p{
     font-size: 10px;
+  }
+  
+  center > p {
+	  font-size: 10px;
+  }
+  
+  footer{
+	  font-size: 10px;
   }
 }

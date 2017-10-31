@@ -1,5 +1,8 @@
 <?php
-    include "database/config.php";
+    include "official/database/config.php";
+?>
+<!DOCTYPE html><?php
+    include "official/database/config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +27,7 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-    <link rel="shortcut icon" href="img/icon.ico">
+    <link rel="shortcut icon" href="official/img/icon.ico">
 
     <!-- Theme CSS -->
     <link href="css/style.css" rel="stylesheet">
@@ -48,8 +51,21 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Effendi Store</a>
+                <a class="navbar-brand page-scroll" href="index.php">Effendi Store</a>
             </div>
+            <div class="navbar-header page-scroll">
+                <form class="navbar-form-custom" role="search" action="search.php" method="GET">
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control" name="key" placeholder="Search" >
+                        <span class="input-group-addon">
+                            <button type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>  
+                        </span>
+                    </div>
+                </form>    
+            </div>
+
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -75,7 +91,7 @@
             <div class="intro-text">
                 <div class="intro-lead-in">Selamat Datang !</div>
                 <div class="intro-heading">Effendi Store</div>
-                <a href="#portfolio" class="page-scroll btn btn-xl">Produk Terbaru</a>
+                <a href="catalogue.php" class="page-scroll btn btn-xl">Katalog</a>
             </div>
         </div>
     </header>
@@ -85,30 +101,37 @@
     <section id="portfolio" class="bg-light-gray">
         <div class="container">
             <div class="row">
-                <center><h2 style="margin-top: 50px;">Produk Terbaru</h2></center>
-
+                 <center><h2 style="margin-top: 50px;">Produk Terbaru</h2></center>
+            </div>
+            <div class="row">
                 <?php
                     // jalankan query
                     $result = mysqli_query($connect, "SELECT * FROM product ORDER BY id DESC LIMIT 6");
                      
                     // tampilkan query
                     while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
-                        echo "<div class='col-md-4 col-xs-6 portfolio-item'>
-                                <a href='detail.php?code=".$row['code']."' class='portfolio-link'>
+                        echo "<div class='col-md-2 col-xs-6 portfolio-item'>
+                                <a href='detail.php?code=".$row['id']."' class='portfolio-link'>
                                     <div class='portfolio-hover'>
                                         <div class='portfolio-hover-content'>
                                             <h4>Details</h4>
                                         </div>
                                     </div>
-                                    <img src='img/products/".$row['image']."' class='img-responsive catalogue' alt=''>
+                                    <img src='official/img/products/".$row['id'].".jpg' class='img-responsive catalogue' alt=''>
                                 </a>
-                                <div class='portfolio-caption'>
+								<div class='portfolio-caption'>
                                     <h4>".$row['name']."</h4>";
+                                    if ($row['status'] == '1') {
+                                        echo "<span class='badge' style='color:#fff;background-color:#28a745'>Tersedia</span>";
+                                    }else{
+                                        echo "<span class='badge' style='color:#fff;background-color:#dc3545'>Kosong</span>";
+                                    }
+
                                     $result2 = mysqli_query($connect, "SELECT * FROM category WHERE id = ".$row['id_category']);
                                     while ($row2=mysqli_fetch_array($result2,MYSQLI_ASSOC)){
                                         echo "<p class='text-muted'>".$row2['name']."</p>";
                                     }
-                                echo"<p><i class='glyphicon glyphicon-tag'> Rp.".$row['price']."</i></p>
+                                    echo"<p><i class='glyphicon glyphicon-tag'> Rp.".$row['price']."</i></p>
                                 </div>
                             </div>";
                     }
@@ -141,6 +164,8 @@
                 <div class="col-md-4 col-md-offset-4">
                     <ul class="list-inline social-buttons">
                         <li><a href="https://www.facebook.com/groups/1811309579119935/?fref=ts"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="https://www.instagram.com/effendistore/"><i class="fa fa-instagram"></i></a>
                         </li>
                     </ul>
                 </div>
