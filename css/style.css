@@ -59,6 +59,9 @@ h6 {
 .bg-light-gray {
   background-color: #eeeeee;
 }
+.bg-light-green{
+  background-color: #2ecc71;
+}
 .bg-darkest-gray {
   background-color: #222222;
 }
@@ -289,8 +292,8 @@ header .intro-text .intro-heading {
 }
 @media (min-width: 768px) {
   header .intro-text {
-    padding-top: 300px;
-    padding-bottom: 200px;
+    padding-top: 200px;
+    padding-bottom: 110px;
   }
   header .intro-text .intro-lead-in {
     font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -305,7 +308,15 @@ header .intro-text .intro-heading {
     font-weight: 700;
     font-size: 75px;
     line-height: 75px;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
+  }
+
+  header .intro-text .intro-tag{
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+    font-size: 25px;
+    line-height: 40px;
+    margin-bottom: 25px;
   }
 }
 section h2.section-heading {
@@ -644,7 +655,8 @@ input:checked + .slider:before {
   .navbar-form-custom{
     display: inline-block;
     margin-top: 10px;
-    margin-left: 150px;
+    margin-left: 70px;
+
   }
 }
 
@@ -723,4 +735,33 @@ input:checked + .slider:before {
   footer{
 	  font-size: 10px;
   }
+}
+.font-white{
+  color: white;
+}
+.font-green{
+  color: #2ecc71;
+}
+.font-black{
+  color: #7f8c8d;
+}
+.padding-text{
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  height: 100%;
+}
+.padding-text > center, 
+.padding-text > p{
+  font-family: 'Doppio One';
+}
+
+.row.is-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row.is-flex > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
 }

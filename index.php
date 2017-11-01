@@ -1,9 +1,9 @@
+
 <?php
     include "official/database/config.php";
 ?>
-<!DOCTYPE html><?php
-    include "official/database/config.php";
-?>
+<!DOCTYPE html>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +32,9 @@
     <!-- Theme CSS -->
     <link href="css/style.css" rel="stylesheet">
 
+     <!-- include file html -->
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -43,47 +46,8 @@
 
 <body id="page-top" class="index">
 
-    <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="index.php">Effendi Store</a>
-            </div>
-            <div class="navbar-header page-scroll">
-                <form class="navbar-form-custom" role="search" action="search.php" method="GET">
-                    <div class="input-group stylish-input-group">
-                        <input type="text" class="form-control" name="key" placeholder="Search" >
-                        <span class="input-group-addon">
-                            <button type="submit">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>  
-                        </span>
-                    </div>
-                </form>    
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Produk Terbaru</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="catalogue.php">Katalog</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+    <!-- include file navbar html -->
+   <div w3-include-html="navbar.html"></div>
 
     <!-- Header -->
     <header class="header">
@@ -91,6 +55,7 @@
             <div class="intro-text">
                 <div class="intro-lead-in">Selamat Datang !</div>
                 <div class="intro-heading">Effendi Store</div>
+                <div class="intro-tag">"kami mengirim ke seluruh Indonesia"</div>
                 <a href="catalogue.php" class="page-scroll btn btn-xl">Katalog</a>
             </div>
         </div>
@@ -141,42 +106,8 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <center><h5>Toko Kandangan</h5></center>
-                    <center><p>Jalan Toyoresmi No. 06 RT 02/ RW 05</p></center>
-                    <center><p>(Gang sebelah Kantor Pos Kandangan, Depan Masjid Baitul Ghufron)</p></center>
-                    <center><p>Prambatan, Kec. Kandangan, Kab. Kediri</p></center>
-                    <center><i class="fa fa-whatsapp" aria-hidden="true"></i><span> 085790508336</span></center>
-                    <center><P>BBM: D9798CB5</P></center>
-                </div>
-                <div class="col-md-6">
-                    <center><h5>Toko Wates</h5></center>
-                    <center><p>Gang Masjid Baitul A'mal</p></center>
-                    <center><p>Desa Wonorejo RT 14 / RW 03 No.92</p></center>
-                    <center><p>Kec. Wates, Kab. Kediri</p></center>
-                    <center><i class="fa fa-whatsapp" aria-hidden="true"></i><span> 085749548986</span></center>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="https://www.facebook.com/groups/1811309579119935/?fref=ts"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="https://www.instagram.com/effendistore/"><i class="fa fa-instagram"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <span class="copyright">Copyright &copy; Effendi Store 2017</span>
-            </div>
-        </div>
-    </footer>
-
-   
+    <!-- include file footr html -->
+    <div w3-include-html="footer.html"></div>
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -193,6 +124,10 @@
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
+
+    <script>
+        w3.includeHTML();
+    </script>
 
 </body>
 
